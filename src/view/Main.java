@@ -56,6 +56,9 @@ public class Main extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         fldSentence = new javax.swing.JTextArea();
         lblSentence = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        readingArea = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simulador Autômato com Pilha");
@@ -154,14 +157,35 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        readingArea.setEditable(false);
+        readingArea.setContentType("text/html"); // NOI18N
+        jScrollPane2.setViewportView(readingArea);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panelAutomatonLayout = new javax.swing.GroupLayout(panelAutomaton);
         panelAutomaton.setLayout(panelAutomatonLayout);
         panelAutomatonLayout.setHorizontalGroup(
             panelAutomatonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAutomatonLayout.createSequentialGroup()
-                .addComponent(panelAutomatonFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelAutomatonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAutomatonLayout.createSequentialGroup()
+                        .addComponent(panelAutomatonFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelAutomatonLayout.setVerticalGroup(
@@ -171,7 +195,9 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(panelAutomatonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelAutomatonFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Autômato", panelAutomaton);
@@ -209,7 +235,7 @@ public class Main extends javax.swing.JFrame {
             this.lblSentence.setForeground(Color.red);
         }
 
-        //this.lblStepByStep.setText(automaton.getReading());
+        this.readingArea.setText(automaton.getReading());
         
     }//GEN-LAST:event_btnVerifyActionPerformed
 
@@ -299,13 +325,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnVerify;
     private javax.swing.JTextField fldFile;
     private javax.swing.JTextArea fldSentence;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblMsg;
     private javax.swing.JLabel lblSentence;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel panelAutomaton;
     private javax.swing.JPanel panelAutomatonFile;
+    private javax.swing.JTextPane readingArea;
     // End of variables declaration//GEN-END:variables
 }
